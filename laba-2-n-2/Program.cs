@@ -42,7 +42,7 @@ class Program
             }
             if (allEqual)
             {
-                Console.WriteLine($"Row {i}");
+                Console.WriteLine($"Row {i + 1}");
                 found = true;
             }
         }
@@ -67,7 +67,7 @@ class Program
             }
             if (allEven)
             {
-                Console.WriteLine($"Column {j}");
+                Console.WriteLine($"Column {j + 1}");
                 found = true;
             }
         }
