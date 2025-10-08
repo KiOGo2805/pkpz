@@ -1,0 +1,2 @@
+Hello world! Python is great.
+This world is beautiful, world of code.
