@@ -44,11 +44,9 @@ root = tk.Tk()
 root.title("English Words Processing")
 root.geometry("700x500")
 
-# Input text field
 input_text = tk.Text(root, height=8, width=70)
 input_text.pack(pady=10)
 
-# --- Context Menu ---
 menu = tk.Menu(root, tearoff=0)
 menu.add_command(label="Copy", command=lambda: input_text.event_generate("<<Copy>>"))
 menu.add_command(label="Cut", command=lambda: input_text.event_generate("<<Cut>>"))
@@ -57,13 +55,11 @@ menu.add_command(label="Paste", command=lambda: input_text.event_generate("<<Pas
 def show_context_menu(event):
     menu.tk_popup(event.x_root, event.y_root)
 
-input_text.bind("<Button-3>", show_context_menu)  # Right click opens menu
+input_text.bind("<Button-3>", show_context_menu)
 
-# Buttons
 find_button = tk.Button(root, text="Find English words", command=find_english_words)
 find_button.pack(pady=5)
 
-# Word input fields
 word_entry = tk.Entry(root, width=30)
 word_entry.pack(pady=5)
 word_entry.insert(0, "Enter a word")
@@ -72,7 +68,6 @@ replace_entry = tk.Entry(root, width=30)
 replace_entry.pack(pady=5)
 replace_entry.insert(0, "Replacement word")
 
-# Action buttons
 remove_button = tk.Button(root, text="Remove word", command=remove_word)
 remove_button.pack(pady=5)
 
