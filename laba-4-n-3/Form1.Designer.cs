@@ -151,7 +151,7 @@
             // rbMul
             // 
             rbMul.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            rbMul.Location = new Point(205, 50);
+            rbMul.Location = new Point(195, 50);
             rbMul.Name = "rbMul";
             rbMul.Size = new Size(70, 50);
             rbMul.TabIndex = 2;
@@ -161,7 +161,7 @@
             // rbDiv
             // 
             rbDiv.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            rbDiv.Location = new Point(290, 50);
+            rbDiv.Location = new Point(270, 50);
             rbDiv.Name = "rbDiv";
             rbDiv.Size = new Size(70, 50);
             rbDiv.TabIndex = 3;
@@ -171,7 +171,7 @@
             // rbPow
             // 
             rbPow.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            rbPow.Location = new Point(366, 50);
+            rbPow.Location = new Point(345, 50);
             rbPow.Name = "rbPow";
             rbPow.Size = new Size(70, 50);
             rbPow.TabIndex = 4;
