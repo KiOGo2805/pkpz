@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace laba_4_n_3
@@ -9,6 +8,7 @@ namespace laba_4_n_3
     {
         private double num1, num2, result;
         private string operation = "";
+
         private readonly string inputFile = "InputData.txt";
         private readonly string outputFile = "OutputData.txt";
         private readonly string logFile = "SessionLog.txt";
@@ -16,6 +16,8 @@ namespace laba_4_n_3
         public Form1()
         {
             InitializeComponent();
+
+            File.WriteAllText(logFile, string.Empty);
             LogAction("Application started");
         }
 
@@ -41,7 +43,7 @@ namespace laba_4_n_3
                 txtNum2.Text = num2.ToString();
 
                 LogAction("Imported input data");
-                MessageBox.Show("Data imported successfully!", "Info");
+                //MessageBox.Show("Data imported successfully!", "Info");
             }
             catch (Exception ex)
             {
@@ -54,24 +56,19 @@ namespace laba_4_n_3
         {
             try
             {
-                double num1 = double.Parse(txtNum1.Text);
-                double num2 = double.Parse(txtNum2.Text);
-                double result = 0;
+                num1 = double.Parse(txtNum1.Text);
+                num2 = double.Parse(txtNum2.Text);
 
-                if (rbAdd.Checked)
-                    result = num1 + num2;
-                else if (rbSub.Checked)
-                    result = num1 - num2;
-                else if (rbMul.Checked)
-                    result = num1 * num2;
+                if (rbAdd.Checked) { result = num1 + num2; operation = "+"; }
+                else if (rbSub.Checked) { result = num1 - num2; operation = "-"; }
+                else if (rbMul.Checked) { result = num1 * num2; operation = "*"; }
                 else if (rbDiv.Checked)
                 {
                     if (num2 == 0)
                         throw new DivideByZeroException("Division by zero is not allowed.");
-                    result = num1 / num2;
+                    result = num1 / num2; operation = "/";
                 }
-                else if (rbPow.Checked)
-                    result = Math.Pow(num1, num2);
+                else if (rbPow.Checked) { result = Math.Pow(num1, num2); operation = "^"; }
                 else
                 {
                     MessageBox.Show("Please select an operation first.", "Warning",
@@ -80,27 +77,33 @@ namespace laba_4_n_3
                 }
 
                 txtResult.Text = result.ToString();
+                LogAction($"Calculated {num1} {operation} {num2} = {result}");
             }
             catch (FormatException)
             {
                 MessageBox.Show("Please enter valid numbers!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogAction("Invalid numeric format entered");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogAction($"Error during calculation: {ex.Message}");
             }
         }
-
 
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(operation) || string.IsNullOrWhiteSpace(txtResult.Text))
+                    throw new Exception("Nothing to export. Calculate the expression first.");
+
                 string line = $"{num1} {operation} {num2}, Result: {result}";
                 File.WriteAllText(outputFile, line);
-                LogAction("Exported result to file");
+
+                LogAction("Exported result to OutputData.txt");
                 MessageBox.Show("Result saved to OutputData.txt", "Success");
             }
             catch (Exception ex)
@@ -112,7 +115,7 @@ namespace laba_4_n_3
 
         private void Radio_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton rb = (RadioButton)sender;
+            var rb = (RadioButton)sender;
             if (rb.Checked)
             {
                 operation = rb.Text;
