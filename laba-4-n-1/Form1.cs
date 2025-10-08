@@ -10,16 +10,12 @@ namespace laba_4_n_1
 {
     public partial class Form1 : Form
     {
-        // Number of parameters (15)
         private const int COLS = 15;
 
-        // Static 2D array [N,15]
         private string[,]? data;
 
-        // List for easier filtering
         private List<Footballer> rows = [];
 
-        // UI
         public Form1()
         {
             InitializeComponent();
@@ -49,7 +45,6 @@ namespace laba_4_n_1
                     rows.Add(Footballer.Parse(parts));
                 }
 
-                // Fill the static 2D array [N,15]
                 data = new string[rows.Count, COLS];
                 for (int i = 0; i < rows.Count; i++)
                 {
@@ -58,7 +53,6 @@ namespace laba_4_n_1
                         data[i, j] = arr[j];
                 }
 
-                // Show in DataGridView
                 dataGridView1.DataSource = BuildDataTableFrom2D(data);
                 labelStatus.Text = $"Loaded records: {rows.Count}";
             }
@@ -76,14 +70,11 @@ namespace laba_4_n_1
                 return;
             }
 
-            // Filter: players with more than 50 games
             var filtered = rows.Where(r => r.Games > 50).ToList();
 
-            // Update DataGridView
             var table = BuildDataTableFromList(filtered);
             dataGridView1.DataSource = table;
 
-            // Write to file
             var outPath = textBoxOutput.Text.Trim();
             File.WriteAllLines(outPath, filtered.Select(f => string.Join(';', f.ToStringArray())));
             labelStatus.Text = $"Selected: {filtered.Count}. Written to file: {outPath}";
@@ -136,7 +127,6 @@ namespace laba_4_n_1
             return dt;
         }
 
-        // Table headers
         private static DataTable CreateHeader()
         {
             var dt = new DataTable();
@@ -159,7 +149,6 @@ namespace laba_4_n_1
         }
     }
 
-    // Footballer model
     public class Footballer
     {
         public string Surname { get; set; } = "";

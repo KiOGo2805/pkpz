@@ -76,6 +76,7 @@
             txtResult.ReadOnly = true;
             txtResult.Size = new Size(430, 34);
             txtResult.TabIndex = 8;
+            txtResult.Text = "";
             // 
             // btnImport
             // 
@@ -204,7 +205,7 @@
             Font = new Font("Segoe UI", 10F);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lab 3 — Arithmetic Calculator";
+            Text = "Task 3 — Arithmetic Calculator";
             groupOps.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

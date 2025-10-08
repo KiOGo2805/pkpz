@@ -9,9 +9,9 @@ namespace laba_4_n_3
     {
         private double num1, num2, result;
         private string operation = "";
-        private string inputFile = "InputData.txt";
-        private string outputFile = "OutputData.txt";
-        private string logFile = "SessionLog.txt";
+        private readonly string inputFile = "InputData.txt";
+        private readonly string outputFile = "OutputData.txt";
+        private readonly string logFile = "SessionLog.txt";
 
         public Form1()
         {
@@ -54,31 +54,45 @@ namespace laba_4_n_3
         {
             try
             {
-                if (string.IsNullOrEmpty(operation))
-                    throw new Exception("Please select an operation.");
+                double num1 = double.Parse(txtNum1.Text);
+                double num2 = double.Parse(txtNum2.Text);
+                double result = 0;
 
-                switch (operation)
+                if (rbAdd.Checked)
+                    result = num1 + num2;
+                else if (rbSub.Checked)
+                    result = num1 - num2;
+                else if (rbMul.Checked)
+                    result = num1 * num2;
+                else if (rbDiv.Checked)
                 {
-                    case "+": result = num1 + num2; break;
-                    case "-": result = num1 - num2; break;
-                    case "*": result = num1 * num2; break;
-                    case "/":
-                        if (num2 == 0)
-                            throw new DivideByZeroException("Division by zero is forbidden!");
-                        result = num1 / num2;
-                        break;
-                    case "^": result = Math.Pow(num1, num2); break;
+                    if (num2 == 0)
+                        throw new DivideByZeroException("Division by zero is not allowed.");
+                    result = num1 / num2;
+                }
+                else if (rbPow.Checked)
+                    result = Math.Pow(num1, num2);
+                else
+                {
+                    MessageBox.Show("Please select an operation first.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
                 txtResult.Text = result.ToString();
-                LogAction($"Calculated expression ({num1} {operation} {num2}) = {result}");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid numbers!", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
-                LogAction($"Error during calculation: {ex.Message}");
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnExport_Click(object sender, EventArgs e)
         {
