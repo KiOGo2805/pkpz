@@ -38,6 +38,7 @@ def replace_word():
     input_text.insert(tk.END, new_text)
     result_label.config(text=f"Word '{old_word}' has been replaced with '{new_word}'.")
 
+
 # --- GUI ---
 root = tk.Tk()
 root.title("English Words Processing")
@@ -46,6 +47,17 @@ root.geometry("700x500")
 # Input text field
 input_text = tk.Text(root, height=8, width=70)
 input_text.pack(pady=10)
+
+# --- Context Menu ---
+menu = tk.Menu(root, tearoff=0)
+menu.add_command(label="Copy", command=lambda: input_text.event_generate("<<Copy>>"))
+menu.add_command(label="Cut", command=lambda: input_text.event_generate("<<Cut>>"))
+menu.add_command(label="Paste", command=lambda: input_text.event_generate("<<Paste>>"))
+
+def show_context_menu(event):
+    menu.tk_popup(event.x_root, event.y_root)
+
+input_text.bind("<Button-3>", show_context_menu)  # Right click opens menu
 
 # Buttons
 find_button = tk.Button(root, text="Find English words", command=find_english_words)
