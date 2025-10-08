@@ -17,7 +17,7 @@ namespace laba_4_n_1
         private string[,]? data;
 
         // List for easier filtering
-        private List<Footballer> rows = new();
+        private List<Footballer> rows = [];
 
         // UI
         public Form1()
@@ -200,8 +200,8 @@ namespace laba_4_n_1
             };
         }
 
-        public string[] ToStringArray() => new[]
-        {
+        public string[] ToStringArray() =>
+        [
             Surname, Name, Patronymic, Nationality,
             HeightCm.ToString(CultureInfo.InvariantCulture),
             WeightKg.ToString(CultureInfo.InvariantCulture),
@@ -213,6 +213,6 @@ namespace laba_4_n_1
             Position,
             Goals.ToString(CultureInfo.InvariantCulture),
             Games.ToString(CultureInfo.InvariantCulture)
-        };
+        ];
     }
 }
