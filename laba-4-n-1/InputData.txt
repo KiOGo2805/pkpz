@@ -1,10 +1,7 @@
-Messi;Lionel;Andres;Argentina;170;72;1987;6;24;+5491112345678;Inter Miami;10;Forward;820;65
-Ronaldo;Cristiano;—;Portugal;187;83;1985;2;5;+351911234567;Al Nassr;7;Forward;850;74
-Mbappe;Kylian;—;France;178;75;1998;12;20;+331111223344;PSG;7;Forward;280;52
-Modric;Luka;—;Croatia;172;68;1985;9;9;+385911223344;Real Madrid;10;Midfielder;100;48
-Courtois;Thibaut;—;Belgium;199;96;1992;5;11;+32470111222;Real Madrid;1;Goalkeeper;0;120
-De Bruyne;Kevin;—;Belgium;181;70;1991;6;28;+32460121212;Manchester City;17;Midfielder;130;58
-Ramos;Sergio;—;Spain;184;82;1986;3;30;+34911222333;Sevilla;4;Defender;110;52
-Mudryk;Mykhailo;Petrovych;Ukraine;175;61;2001;1;5;+380631234567;Chelsea;10;Winger;15;41
-Shevchenko;Andriy;Mykolayovych;Ukraine;183;73;1976;9;29;+380671112233;Dynamo Kyiv;7;Forward;176;75
-Bellingham;Jude;Victor;England;186;75;2003;6;29;+441234567890;Real Madrid;5;Midfielder;25;39
+Kane;Harry;Edward;England;188;86;1993;7;28;+44123456789;Tottenham;10;Forward;213;89
+Modric;Luka;Ivan;Croatia;172;66;1985;9;9;+38598765432;Real Madrid;10;Midfielder;125;95
+Mbappe;Kylian;Adesemi;France;178;73;1998;12;20;+33987654321;PSG;7;Forward;210;120
+Messi;Lionel;Andres;Argentina;169;67;1987;6;24;+54987654321;Inter Miami;10;Forward;819;1025
+Haaland;Erling;Braut;Norway;195;94;2000;7;21;+47985623147;Manchester City;9;Forward;187;69
+Bellingham;Jude;Victor;England;186;75;2003;6;29;+44123455555;Real Madrid;5;Midfielder;47;52
+Rashford;Marcus;Anthony;England;181;74;1997;10;31;+44123777777;Manchester United;10;Forward;130;48

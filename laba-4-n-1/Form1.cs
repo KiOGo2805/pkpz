@@ -11,9 +11,7 @@ namespace laba_4_n_1
     public partial class Form1 : Form
     {
         private const int COLS = 15;
-
         private string[,]? data;
-
         private List<Footballer> rows = [];
 
         public Form1()
