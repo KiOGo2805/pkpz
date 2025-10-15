@@ -15,131 +15,132 @@
 
         private void InitializeComponent()
         {
-            this.labelInput = new System.Windows.Forms.Label();
-            this.textBoxInput = new System.Windows.Forms.TextBox();
-            this.labelOutput = new System.Windows.Forms.Label();
-            this.textBoxOutput = new System.Windows.Forms.TextBox();
-            this.buttonLoad = new System.Windows.Forms.Button();
-            this.buttonFilter = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelStatus = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            labelInput = new Label();
+            textBoxInput = new TextBox();
+            labelOutput = new Label();
+            textBoxOutput = new TextBox();
+            buttonLoad = new Button();
+            buttonFilter = new Button();
+            buttonSave = new Button();
+            dataGridView1 = new DataGridView();
+            labelStatus = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // labelInput
             // 
-            this.labelInput.AutoSize = true;
-            this.labelInput.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.labelInput.Location = new Point(30, 25);
-            this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new Size(87, 23);
-            this.labelInput.TabIndex = 0;
-            this.labelInput.Text = "Input file:";
+            labelInput.AutoSize = true;
+            labelInput.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            labelInput.Location = new Point(30, 25);
+            labelInput.Name = "labelInput";
+            labelInput.Size = new Size(104, 28);
+            labelInput.TabIndex = 0;
+            labelInput.Text = "Input file:";
             // 
             // textBoxInput
             // 
-            this.textBoxInput.Location = new Point(130, 22);
-            this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new Size(220, 27);
-            this.textBoxInput.TabIndex = 1;
-            this.textBoxInput.Text = "InputData.txt";
-            // 
-            // buttonLoad
-            // 
-            this.buttonLoad.Location = new Point(370, 20);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new Size(140, 30);
-            this.buttonLoad.TabIndex = 2;
-            this.buttonLoad.Text = "📂 Load Data";
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.BtnLoad_Click);
+            textBoxInput.Location = new Point(130, 22);
+            textBoxInput.Name = "textBoxInput";
+            textBoxInput.Size = new Size(220, 34);
+            textBoxInput.TabIndex = 1;
+            textBoxInput.Text = "InputData.txt";
             // 
             // labelOutput
             // 
-            this.labelOutput.AutoSize = true;
-            this.labelOutput.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.labelOutput.Location = new Point(540, 25);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new Size(103, 23);
-            this.labelOutput.TabIndex = 3;
-            this.labelOutput.Text = "Output file:";
+            labelOutput.AutoSize = true;
+            labelOutput.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            labelOutput.Location = new Point(540, 25);
+            labelOutput.Name = "labelOutput";
+            labelOutput.Size = new Size(121, 28);
+            labelOutput.TabIndex = 3;
+            labelOutput.Text = "Output file:";
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new Point(650, 22);
-            this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new Size(220, 27);
-            this.textBoxOutput.TabIndex = 4;
-            this.textBoxOutput.Text = "OutputData.txt";
+            textBoxOutput.Location = new Point(650, 22);
+            textBoxOutput.Name = "textBoxOutput";
+            textBoxOutput.Size = new Size(220, 34);
+            textBoxOutput.TabIndex = 4;
+            textBoxOutput.Text = "OutputData.txt";
             // 
-            // buttonSave
+            // buttonLoad
             // 
-            this.buttonSave.Location = new Point(890, 20);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new Size(130, 30);
-            this.buttonSave.TabIndex = 5;
-            this.buttonSave.Text = "💾 Save Table";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.BtnSave_Click);
+            buttonLoad.Location = new Point(370, 20);
+            buttonLoad.Name = "buttonLoad";
+            buttonLoad.Size = new Size(140, 36);
+            buttonLoad.TabIndex = 2;
+            buttonLoad.Text = "📂 Load Data";
+            buttonLoad.UseVisualStyleBackColor = true;
+            buttonLoad.Click += BtnLoad_Click;
             // 
             // buttonFilter
             // 
-            this.buttonFilter.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.buttonFilter.Location = new Point(1040, 20);
-            this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new Size(200, 30);
-            this.buttonFilter.TabIndex = 6;
-            this.buttonFilter.Text = "⚽ Show > 50 games";
-            this.buttonFilter.UseVisualStyleBackColor = true;
-            this.buttonFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            buttonFilter.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            buttonFilter.Location = new Point(1040, 20);
+            buttonFilter.Name = "buttonFilter";
+            buttonFilter.Size = new Size(200, 36);
+            buttonFilter.TabIndex = 6;
+            buttonFilter.Text = "Show > 50 games";
+            buttonFilter.UseVisualStyleBackColor = true;
+            buttonFilter.Click += BtnFilter_Click;
+            // 
+            // buttonSave
+            // 
+            buttonSave.Location = new Point(890, 20);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(130, 36);
+            buttonSave.TabIndex = 5;
+            buttonSave.Text = "💾 Save Table";
+            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += BtnSave_Click;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new Point(30, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new Size(1210, 530);
-            this.dataGridView1.TabIndex = 7;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(30, 70);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(1210, 530);
+            dataGridView1.TabIndex = 7;
             // 
             // labelStatus
             // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new Font("Segoe UI", 9.5F, FontStyle.Italic);
-            this.labelStatus.ForeColor = System.Drawing.Color.Gray;
-            this.labelStatus.Location = new Point(30, 620);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new Size(67, 21);
-            this.labelStatus.TabIndex = 8;
-            this.labelStatus.Text = "Ready...";
+            labelStatus.AutoSize = true;
+            labelStatus.Font = new Font("Segoe UI", 9.5F, FontStyle.Italic);
+            labelStatus.ForeColor = Color.Gray;
+            labelStatus.Location = new Point(30, 620);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(73, 25);
+            labelStatus.TabIndex = 8;
+            labelStatus.Text = "Ready...";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new Size(1280, 680);
-            this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.buttonFilter);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.textBoxOutput);
-            this.Controls.Add(this.labelOutput);
-            this.Controls.Add(this.buttonLoad);
-            this.Controls.Add(this.textBoxInput);
-            this.Controls.Add(this.labelInput);
-            this.Font = new Font("Segoe UI", 10F);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "Lab 4 — Footballers (filter > 50 games)";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1280, 680);
+            Controls.Add(labelStatus);
+            Controls.Add(dataGridView1);
+            Controls.Add(buttonFilter);
+            Controls.Add(buttonSave);
+            Controls.Add(textBoxOutput);
+            Controls.Add(labelOutput);
+            Controls.Add(buttonLoad);
+            Controls.Add(textBoxInput);
+            Controls.Add(labelInput);
+            Font = new Font("Segoe UI", 10F);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Lab 4 — Footballers (filter > 50 games)";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

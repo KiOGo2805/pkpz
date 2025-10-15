@@ -99,7 +99,6 @@ namespace laba_4_n_1
             labelStatus.Text = $"Saved {lines.Count} rows to {outPath}";
         }
 
-        // Convert static 2D array into DataTable
         private static DataTable BuildDataTableFrom2D(string[,] arr)
         {
             var dt = CreateHeader();
@@ -116,7 +115,6 @@ namespace laba_4_n_1
             return dt;
         }
 
-        // Build table from List
         private static DataTable BuildDataTableFromList(List<Footballer> list)
         {
             var dt = CreateHeader();
