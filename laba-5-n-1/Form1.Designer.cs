@@ -208,7 +208,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(57, 200);
+            btnSave.Location = new Point(57, 125);
             btnSave.Margin = new Padding(4, 5, 4, 5);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(286, 58);
@@ -218,7 +218,7 @@
             // 
             // btnShow
             // 
-            btnShow.Location = new Point(57, 125);
+            btnShow.Location = new Point(57, 193);
             btnShow.Margin = new Padding(4, 5, 4, 5);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(286, 58);
@@ -269,7 +269,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Будівля — Лабораторна №4 (Варіант 10)";
+            Text = "Будівля — Лабораторна №4";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
