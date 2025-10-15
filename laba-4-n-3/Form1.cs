@@ -43,7 +43,7 @@ namespace laba_4_n_3
                 txtNum2.Text = num2.ToString();
 
                 LogAction("Imported input data");
-                //MessageBox.Show("Data imported successfully!", "Info");
+                MessageBox.Show("Data imported successfully!", "Info");
             }
             catch (Exception ex)
             {
