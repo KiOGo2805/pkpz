@@ -3,7 +3,7 @@ from tkinter import messagebox, ttk
 from abc import ABC, abstractmethod
 
 # ----------------------------------------------------
-# 1. ABSTRACT BASE CLASS: TEACHER
+# 1. ABSTRACT BASE CLASS: TEACHER (MODELS)
 # ----------------------------------------------------
 class Teacher(ABC):
     
@@ -80,56 +80,120 @@ class AssocProf(Teacher):
             return "Experience Level: Initial"
 
 # ----------------------------------------------------
-# 4. GUI APPLICATION CLASS (using standard Tkinter)
+# 4. GUI APPLICATION CLASS
 # ----------------------------------------------------
 class TeacherApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Lab 6: Abstract Classes")
-        self.geometry("600x450")
+        self.title("Lab 6: Teacher Database")
+        self.geometry("950x500")
         self.resizable(False, False)
         
         self.department_list = ["Software Engineering", "Cybersecurity", "Mathematics", "Physics"]
-        
-        self.teachers_db = [
-            Professor("Ivanov A.A.", "Software Engineering", 1.0, True),
-            AssocProf("Petrova O.V.", "Mathematics", 0.75, 8),
-            Professor("Sydorenko V.V.", "Cybersecurity", 0.5, False),
-            AssocProf("Melnyk I.S.", "Software Engineering", 1.0, 12),
-        ]
+        self.teachers_db = [] # Start with an empty database
         
         self.setup_ui()
 
     def setup_ui(self):
         
-        # Frame for controls
-        control_frame = ttk.Frame(self, padding="10")
-        control_frame.pack(pady=10)
+        # --- INPUT FRAME (Left Side) ---
+        input_frame = ttk.LabelFrame(self, text="Create New Teacher", padding="10")
+        input_frame.grid(row=0, column=0, padx=10, pady=10, sticky="n")
 
-        # Department ComboBox
-        ttk.Label(control_frame, text="Search Department:").pack(side="left", padx=5)
-        self.department_search = ttk.Combobox(control_frame, values=self.department_list, width=25)
-        self.department_search.set(self.department_list[0])
-        self.department_search.pack(side="left", padx=10)
-
-        # Buttons
-        ttk.Button(control_frame, text="Show All Database", command=self.show_all_teachers).pack(side="left", padx=5)
-        ttk.Button(control_frame, text="Search by Department", command=self.search_by_department).pack(side="left", padx=5)
-
-        # Output Text Area
-        ttk.Label(self, text="Results Output:").pack(pady=(10, 0))
+        # --- Dynamic Fields ---
+        labels = ["Name:", "Rate (e.g., 1.0):", "Degree (0/1) / Experience (Years):"]
+        self.input_entries = {}
         
-        self.output_text = tk.Text(self, height=18, width=70)
-        self.output_text.pack(padx=20, pady=10)
+        for i, text in enumerate(labels):
+            ttk.Label(input_frame, text=text).grid(row=i, column=0, sticky="w", pady=5)
+            entry = ttk.Entry(input_frame, width=30)
+            entry.grid(row=i, column=1, pady=5, padx=5)
+            self.input_entries[text] = entry
+            
+        # --- Department ComboBox ---
+        ttk.Label(input_frame, text="Department:").grid(row=3, column=0, sticky="w", pady=5)
+        self.input_dept = ttk.Combobox(input_frame, values=self.department_list, width=27)
+        self.input_dept.set(self.department_list[0])
+        self.input_dept.grid(row=3, column=1, pady=5, padx=5)
+        
+        # --- Position ComboBox (Switch between Professor/AssocProf) ---
+        ttk.Label(input_frame, text="Position:").grid(row=4, column=0, sticky="w", pady=5)
+        self.input_position = ttk.Combobox(input_frame, values=["Professor", "AssocProf"], width=27)
+        self.input_position.set("Professor")
+        self.input_position.grid(row=4, column=1, pady=5, padx=5)
+        
+        # --- Create Button ---
+        ttk.Button(input_frame, text="Create Teacher", command=self.create_teacher).grid(row=5, column=0, columnspan=2, pady=10)
 
-        self.show_all_teachers()
+        # --- DATABASE FRAME (Right Side) ---
+        database_frame = ttk.LabelFrame(self, text="Database Operations", padding="10")
+        database_frame.grid(row=0, column=1, padx=10, pady=10, sticky="n")
+        
+        # Search controls
+        ttk.Label(database_frame, text="Filter by Department:").pack(pady=5)
+        self.search_dept = ttk.Combobox(database_frame, values=["Show All"] + self.department_list, width=25)
+        self.search_dept.set("Show All")
+        self.search_dept.pack(pady=5)
+        
+        # Buttons
+        ttk.Button(database_frame, text="Show All/Filter", command=self.show_all_teachers).pack(pady=10, fill='x')
+        
+        # Output Text Area
+        ttk.Label(database_frame, text="Results Output:").pack(pady=(10, 0))
+        self.output_text = tk.Text(database_frame, height=20, width=50)
+        self.output_text.pack(padx=5, pady=5)
+
+    def get_input_values(self):
+        """Safely retrieves and validates all input values."""
+        
+        try:
+            name = self.input_entries["Name:"].get()
+            rate = float(self.input_entries["Rate (e.g., 1.0):"].get())
+            dept = self.input_dept.get()
+            position = self.input_position.get()
+            
+            # --- Specific Value Parsing ---
+            specific_value = self.input_entries["Degree (0/1) / Experience (Years):"].get()
+            
+            if position == "Professor":
+                # Degree: 1 for Doctorate, 0 for PhD/no Doctorate
+                specific_data = bool(int(specific_value)) 
+            else: # AssocProf
+                # Experience: integer years
+                specific_data = int(specific_value) 
+
+            if not name or not dept:
+                 raise ValueError("Name and Department fields cannot be empty.")
+            
+            return name, rate, dept, position, specific_data
+
+        except ValueError as e:
+            messagebox.showerror("Input Error", f"Invalid input format: {e}.\nCheck Rate, Degree (must be 0 or 1) or Experience (must be integer).")
+            return None, None, None, None, None
+        
+    def create_teacher(self):
+        """Creates a new teacher object and adds it to the database."""
+        name, rate, dept, position, specific_data = self.get_input_values()
+        
+        if name is None:
+            return # Validation failed, error shown by get_input_values
+
+        if position == "Professor":
+            new_teacher = Professor(name, dept, rate, specific_data)
+        else: # AssocProf
+            new_teacher = AssocProf(name, dept, rate, specific_data)
+
+        self.teachers_db.append(new_teacher)
+        messagebox.showinfo("Success", f"{position} {name} created and added to the database.")
+        self.show_all_teachers() # Refresh the output
 
     def display_results(self, teachers_list, title):
+        """Clears and outputs the list of teachers to the text box."""
         self.output_text.delete("1.0", "end")
         output = f"--- {title} ({len(teachers_list)} people) ---\n\n"
         
         if not teachers_list:
-            output += "No teachers found."
+            output += "Database is empty or no teachers found matching filter."
             self.output_text.insert("end", output)
             return
 
@@ -159,16 +223,19 @@ class TeacherApp(tk.Tk):
         self.output_text.insert("end", output)
 
     def show_all_teachers(self):
-        self.display_results(self.teachers_db, "FULL TEACHERS DATABASE")
-
-    def search_by_department(self):
-        department_name = self.department_search.get()
+        """Outputs full database or applies filter based on ComboBox."""
         
-        results = [
-            t for t in self.teachers_db if t.department == department_name
-        ]
+        filter_dept = self.search_dept.get()
         
-        self.display_results(results, f"SEARCH RESULTS (Department: {department_name})")
+        if filter_dept == "Show All":
+            results = self.teachers_db
+            title = "FULL TEACHERS DATABASE"
+        else:
+            # Apply filter
+            results = [t for t in self.teachers_db if t.department == filter_dept]
+            title = f"SEARCH RESULTS (Department: {filter_dept})"
+            
+        self.display_results(results, title)
 
 # ----------------------------------------------------
 # 5. MAIN ENTRY POINT
