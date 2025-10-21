@@ -269,7 +269,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Будівля — Лабораторна №4";
+            Text = "Лабораторна 5_1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
