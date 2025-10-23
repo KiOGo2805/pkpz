@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace laba_6_n_2
 {
-    // Клас реалізує ОБИДВА інтерфейси
     public class Cat : IAnimal, IShelter
     {
-        // Поля і властивості у вашому стилі
         private string name;
         private int age;
         private string shelterLocation;
@@ -20,7 +18,6 @@ namespace laba_6_n_2
         public string ShelterLocation { get => shelterLocation; set => shelterLocation = value; }
         public int Occupants { get => occupants; set => occupants = value; }
 
-        // Конструктор за замовчуванням (як у вашому класі Building)
         public Cat()
         {
             Name = "Невідомий кіт";
@@ -29,7 +26,6 @@ namespace laba_6_n_2
             Occupants = 0;
         }
 
-        // --- Реалізація IAnimal ---
         public string GetAnimalInfo()
         {
             return $"Тварина: {Name} (Кіт){Environment.NewLine}Вік: {Age} р.";
@@ -39,7 +35,6 @@ namespace laba_6_n_2
             return $"{Name} каже: Мяу!";
         }
 
-        // --- Реалізація IShelter ---
         public string GetShelterInfo()
         {
             return $"Притулок: {ShelterLocation}{Environment.NewLine}Мешканців: {Occupants}";
@@ -49,7 +44,6 @@ namespace laba_6_n_2
             Occupants += count;
         }
 
-        // --- Власні методи (2) ---
         public string Purr()
         {
             return $"{Name} муркоче...";

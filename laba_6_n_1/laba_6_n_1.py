@@ -2,9 +2,6 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 from abc import ABC, abstractmethod
 
-# ----------------------------------------------------
-# 1. ABSTRACT BASE CLASS: TEACHER
-# ----------------------------------------------------
 class Teacher(ABC):
     
     def __init__(self, name: str, department: str, rate: float):
@@ -29,9 +26,6 @@ class Teacher(ABC):
     def is_highly_paid(self) -> bool:
         return self.calculate_salary() > 30000
 
-# ----------------------------------------------------
-# 2. DERIVED CLASS 1: PROFESSOR
-# ----------------------------------------------------
 class Professor(Teacher):
     
     def __init__(self, name: str, department: str, rate: float, has_doctoral: bool):
@@ -53,9 +47,6 @@ class Professor(Teacher):
         status = 'with management rights' if self.has_doctoral else 'consultant'
         return f"Status: Professor ({status})"
 
-# ----------------------------------------------------
-# 3. DERIVED CLASS 2: ASSOCIATE PROFESSOR
-# ----------------------------------------------------
 class AssocProf(Teacher):
     
     def __init__(self, name: str, department: str, rate: float, years_experience: int):
@@ -79,9 +70,6 @@ class AssocProf(Teacher):
         else:
             return "Experience Level: Initial"
 
-# ----------------------------------------------------
-# 4. GUI APPLICATION CLASS
-# ----------------------------------------------------
 class TeacherApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -220,9 +208,6 @@ class TeacherApp(tk.Tk):
             
         self.display_results(results, title)
 
-# ----------------------------------------------------
-# 5. MAIN ENTRY POINT
-# ----------------------------------------------------
 if __name__ == "__main__":
     app = TeacherApp()
     app.mainloop()
