@@ -14,7 +14,8 @@ namespace laba_7_n_2
         {
             InitializeComponent();
             dtpDate.Format = DateTimePickerFormat.Short;
-            dtpTime.Format = DateTimePickerFormat.Time;
+            dtpTime.Format = DateTimePickerFormat.Custom;
+            dtpTime.CustomFormat = "HH:mm";
             dtpTime.ShowUpDown = true;
         }
 
