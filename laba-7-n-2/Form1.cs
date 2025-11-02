@@ -1,5 +1,4 @@
 using Microsoft.VisualBasic;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ namespace laba_7_n_2
 {
     public partial class Form1 : Form
     {
-        private List<TimetableEntry> trainDatabase = new List<TimetableEntry>();
+        private readonly List<TimetableEntry> trainDatabase = [];
 
         public Form1()
         {
@@ -34,8 +33,7 @@ namespace laba_7_n_2
                     return;
                 }
 
-                // Створюємо об'єкт з властивостями як у завданні
-                TimetableEntry newEntry = new TimetableEntry
+                TimetableEntry newEntry = new()
                 {
                     NAZV = destination,
                     NUMR = trainNumber,
@@ -54,7 +52,6 @@ namespace laba_7_n_2
             }
         }
 
-        // Допоміжний метод для виведення
         private void DisplayTrains(List<TimetableEntry> trains, string title)
         {
             txtOutput.Clear();
@@ -73,7 +70,6 @@ namespace laba_7_n_2
             }
         }
 
-        // --- Вимога 2: Впорядкування записів ---
         private void btnSort_Click(object sender, EventArgs e)
         {
             if (trainDatabase.Count == 0)
@@ -82,14 +78,12 @@ namespace laba_7_n_2
                 return;
             }
 
-            // Логіка не змінилась, .Sort() тепер викликає оновлений CompareTo()
-            List<TimetableEntry> sortedList = new List<TimetableEntry>(trainDatabase);
+            List<TimetableEntry> sortedList = [.. trainDatabase];
             sortedList.Sort();
 
             DisplayTrains(sortedList, "Розклад, відсортований за датою та часом");
         }
 
-        // --- Вимога 3: Виведення інформації (Пошук) ---
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchDestination = txtSearchDest.Text;
@@ -99,10 +93,8 @@ namespace laba_7_n_2
                 return;
             }
 
-            // Пошук тепер ведеться по полю NAZV
-            List<TimetableEntry> results = trainDatabase
-                .Where(train => train.NAZV.Equals(searchDestination, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            List<TimetableEntry> results = [.. trainDatabase
+                .Where(train => train.NAZV.Equals(searchDestination, StringComparison.OrdinalIgnoreCase))];
 
             if (results.Count > 0)
             {
@@ -111,7 +103,8 @@ namespace laba_7_n_2
             else
             {
                 txtOutput.Clear();
-                txtOutput.AppendText($"--- Результати пошуку для: '{searchDestination}' ---{Environment.NewLine}{Environment.NewLine}");
+                txtOutput.AppendText($"--- Результати пошуку для: '{searchDestination}' ---" +
+                    $"{Environment.NewLine}{Environment.NewLine}");
                 txtOutput.AppendText($"Потягів до пункту '{searchDestination}' не знайдено.");
             }
         }
