@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace laba_7_n_2
+﻿namespace laba_7_n_2
 {
     public class TimetableEntry : IComparable<TimetableEntry>
     {

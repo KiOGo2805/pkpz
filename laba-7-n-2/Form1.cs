@@ -1,8 +1,3 @@
-using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
 namespace laba_7_n_2
 {
     public partial class Form1 : Form
