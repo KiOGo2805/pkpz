@@ -106,7 +106,7 @@ namespace laba_7_n_2
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            DisplayTrains(trainDatabase, "Повний розклад (як додали)");
+            DisplayTrains(trainDatabase, "Повний розклад");
         }
     }
 }
