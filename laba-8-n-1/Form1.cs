@@ -33,7 +33,7 @@ namespace laba_8_n_1
                     return;
                 }
 
-                PersonInfo newPerson = new PersonInfo(
+                PersonInfo newPerson = new(
                     txtLastName.Text,
                     txtFirstName.Text,
                     (int)numBirthYear.Value,
@@ -60,9 +60,7 @@ namespace laba_8_n_1
         // Кнопка: Підрахувати осіб > 60 років
         private void btnCountFreePassage_Click(object sender, EventArgs e)
         {
-            List<PersonInfo> eligiblePeople = personDatabase
-                .Where(person => person.IsEligibleForFreePassage())
-                .ToList();
+            List<PersonInfo> eligiblePeople = [.. personDatabase.Where(person => person.IsEligibleForFreePassage())];
 
             RefreshPeopleList(eligiblePeople);
             MessageBox.Show($"Знайдено {eligiblePeople.Count} осіб," +
