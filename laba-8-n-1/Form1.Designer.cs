@@ -312,7 +312,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Лабораторна 8: Кортежі (laba_8_n_1)";
+            Text = "laba-8-n-1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numCardID).EndInit();

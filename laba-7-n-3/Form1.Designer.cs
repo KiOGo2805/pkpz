@@ -289,7 +289,7 @@
             btnFindShortestThisYear.Name = "btnFindShortestThisYear";
             btnFindShortestThisYear.Size = new Size(742, 100);
             btnFindShortestThisYear.TabIndex = 2;
-            btnFindShortestThisYear.Text = "Вимога 4: Найкоротший поєдинок цього року";
+            btnFindShortestThisYear.Text = "Найкоротший поєдинок цього року";
             btnFindShortestThisYear.UseVisualStyleBackColor = true;
             btnFindShortestThisYear.Click += btnFindShortestThisYear_Click;
             // 
@@ -300,7 +300,7 @@
             btnShowLast3Months.Name = "btnShowLast3Months";
             btnShowLast3Months.Size = new Size(742, 100);
             btnShowLast3Months.TabIndex = 1;
-            btnShowLast3Months.Text = "Вимога 2: Нокаути за останні 3 місяці";
+            btnShowLast3Months.Text = "Нокаути за останні 3 місяці";
             btnShowLast3Months.UseVisualStyleBackColor = true;
             btnShowLast3Months.Click += btnShowLast3Months_Click;
             // 
@@ -311,7 +311,7 @@
             btnShowAll.Name = "btnShowAll";
             btnShowAll.Size = new Size(742, 100);
             btnShowAll.TabIndex = 0;
-            btnShowAll.Text = "Вимога 1: Вивести всіх (з розрахунком часу)";
+            btnShowAll.Text = "Вивести всіх (з розрахунком часу)";
             btnShowAll.UseVisualStyleBackColor = true;
             btnShowAll.Click += btnShowAll_Click;
             // 

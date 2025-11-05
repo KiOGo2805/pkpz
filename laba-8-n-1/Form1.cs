@@ -12,7 +12,6 @@ namespace laba_8_n_1
             numBirthYear.Value = 2000;
             numBirthYear.Minimum = 1900;
 
-            // Заповнюємо ComboBox для вибору поля
             cmbFieldSelect.Items.Add("Прізвище");
             cmbFieldSelect.Items.Add("Ім'я");
             cmbFieldSelect.Items.Add("Рік народження");
@@ -20,7 +19,6 @@ namespace laba_8_n_1
             cmbFieldSelect.SelectedIndex = 0;
         }
 
-        // Кнопка: Додати особу
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             try
@@ -57,7 +55,6 @@ namespace laba_8_n_1
             }
         }
 
-        // Кнопка: Підрахувати осіб > 60 років
         private void btnCountFreePassage_Click(object sender, EventArgs e)
         {
             List<PersonInfo> eligiblePeople = [.. personDatabase.Where(person => person.IsEligibleForFreePassage())];
@@ -67,7 +64,6 @@ namespace laba_8_n_1
                 $" які мають право на безкоштовний проїзд.", "Результат підрахунку");
         }
 
-        // Кнопка: Показати ОДНЕ конкретне значення
         private void btnShowSpecific_Click(object sender, EventArgs e)
         {
             try
@@ -86,11 +82,8 @@ namespace laba_8_n_1
                 string selectedField = cmbFieldSelect.SelectedItem.ToString();
                 string value = foundPerson.GetValueByName(selectedField);
 
-                // --- ЗМІНА ТУТ ---
-                // Виводимо в тому ж "стилі", що й інша кнопка
                 MessageBox.Show($"Поле: {selectedField}{Environment.NewLine}Значення: {value}",
                                 $"Дані для ID: {searchID}");
-                // --- ---
             }
             catch (Exception ex)
             {
@@ -98,7 +91,6 @@ namespace laba_8_n_1
             }
         }
 
-        // Кнопка: Знайти та показати ВСІ дані
         private void btnFindAndShowAll_Click(object sender, EventArgs e)
         {
             try
@@ -123,7 +115,6 @@ namespace laba_8_n_1
             }
         }
 
-        // --- Допоміжні методи ---
         private void btnShowAll_Click(object sender, EventArgs e)
         {
             RefreshPeopleList(personDatabase);
