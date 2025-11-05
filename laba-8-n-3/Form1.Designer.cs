@@ -17,121 +17,118 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbBrands = new System.Windows.Forms.ComboBox();
-            this.btnGetInfo = new System.Windows.Forms.Button();
-            this.txtOutput = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnContinue = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new Label();
+            cmbBrands = new ComboBox();
+            btnGetInfo = new Button();
+            txtOutput = new TextBox();
+            groupBox1 = new GroupBox();
+            btnContinue = new Button();
+            btnExit = new Button();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(25, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Вікторина: Оберіть марку автомобіля";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(42, 38);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(463, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Вікторина: Оберіть марку автомобіля";
             // 
             // cmbBrands
             // 
-            this.cmbBrands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBrands.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.cmbBrands.FormattingEnabled = true;
-            this.cmbBrands.Location = new System.Drawing.Point(29, 53);
-            this.cmbBrands.Name = "cmbBrands";
-            this.cmbBrands.Size = new System.Drawing.Size(302, 28);
-            this.cmbBrands.TabIndex = 1;
+            cmbBrands.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBrands.Font = new Font("Segoe UI", 11F);
+            cmbBrands.FormattingEnabled = true;
+            cmbBrands.Location = new Point(48, 102);
+            cmbBrands.Margin = new Padding(5, 6, 5, 6);
+            cmbBrands.Name = "cmbBrands";
+            cmbBrands.Size = new Size(501, 38);
+            cmbBrands.TabIndex = 1;
             // 
             // btnGetInfo
             // 
-            this.btnGetInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGetInfo.Location = new System.Drawing.Point(29, 98);
-            this.btnGetInfo.Name = "btnGetInfo";
-            this.btnGetInfo.Size = new System.Drawing.Size(302, 40);
-            this.btnGetInfo.TabIndex = 2;
-            this.btnGetInfo.Text = "Показати інформацію";
-            this.btnGetInfo.UseVisualStyleBackColor = true;
-            this.btnGetInfo.Click += new System.EventHandler(this.btnGetInfo_Click);
+            btnGetInfo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGetInfo.Location = new Point(48, 188);
+            btnGetInfo.Margin = new Padding(5, 6, 5, 6);
+            btnGetInfo.Name = "btnGetInfo";
+            btnGetInfo.Size = new Size(503, 77);
+            btnGetInfo.TabIndex = 2;
+            btnGetInfo.Text = "Показати інформацію";
+            btnGetInfo.UseVisualStyleBackColor = true;
+            btnGetInfo.Click += btnGetInfo_Click;
             // 
             // txtOutput
             // 
-            this.txtOutput.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtOutput.Location = new System.Drawing.Point(15, 30);
-            this.txtOutput.Multiline = true;
-            this.txtOutput.Name = "txtOutput";
-            this.txtOutput.ReadOnly = true;
-            this.txtOutput.Size = new System.Drawing.Size(302, 85);
-            this.txtOutput.TabIndex = 3;
+            txtOutput.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            txtOutput.Location = new Point(25, 58);
+            txtOutput.Margin = new Padding(5, 6, 5, 6);
+            txtOutput.Multiline = true;
+            txtOutput.Name = "txtOutput";
+            txtOutput.ReadOnly = true;
+            txtOutput.Size = new Size(501, 160);
+            txtOutput.TabIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnContinue);
-            this.groupBox1.Controls.Add(this.btnExit);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtOutput);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(14, 155);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 185);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Результат";
+            groupBox1.Controls.Add(btnContinue);
+            groupBox1.Controls.Add(btnExit);
+            groupBox1.Controls.Add(txtOutput);
+            groupBox1.Font = new Font("Segoe UI", 10F);
+            groupBox1.Location = new Point(23, 298);
+            groupBox1.Margin = new Padding(5, 6, 5, 6);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(5, 6, 5, 6);
+            groupBox1.Size = new Size(555, 356);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Результат";
             // 
             // btnContinue
             // 
-            this.btnContinue.Location = new System.Drawing.Point(15, 137);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(148, 35);
-            this.btnContinue.TabIndex = 6;
-            this.btnContinue.Text = "Продовжити";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            btnContinue.Location = new Point(25, 263);
+            btnContinue.Margin = new Padding(5, 6, 5, 6);
+            btnContinue.Name = "btnContinue";
+            btnContinue.Size = new Size(247, 67);
+            btnContinue.TabIndex = 6;
+            btnContinue.Text = "Продовжити";
+            btnContinue.UseVisualStyleBackColor = true;
+            btnContinue.Click += btnContinue_Click;
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.MistyRose;
-            this.btnExit.Location = new System.Drawing.Point(169, 137);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(148, 35);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.Text = "Завершити";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.label2.Location = new System.Drawing.Point(12, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Ваш вибір (Вимога 3: while цикл):";
+            btnExit.BackColor = Color.MistyRose;
+            btnExit.Location = new Point(282, 263);
+            btnExit.Margin = new Padding(5, 6, 5, 6);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(247, 67);
+            btnExit.TabIndex = 5;
+            btnExit.Text = "Завершити";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 354);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnGetInfo);
-            this.Controls.Add(this.cmbBrands);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Лабораторна (Вікторина)";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(602, 681);
+            Controls.Add(groupBox1);
+            Controls.Add(btnGetInfo);
+            Controls.Add(cmbBrands);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(5, 6, 5, 6);
+            MaximizeBox = false;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "laba-8-n-3";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -144,6 +141,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label2;
     }
 }
