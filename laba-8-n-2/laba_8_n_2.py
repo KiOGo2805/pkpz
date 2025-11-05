@@ -21,7 +21,7 @@ class PriceCalculatorApp(tk.Tk):
     
     def __init__(self):
         super().__init__()
-        self.title("Market Price Calculator")
+        self.title("laba-8-n-2")
         self.geometry("600x650")
         self.resizable(False, False)
         
