@@ -18,11 +18,11 @@ namespace laba_10_n_2
         {
             // --- Вимога: Зберегти заданий граф ---
             // 1. Ініціалізуємо 6 вершин
-            vertices = new List<string> { "a", "b", "c", "d", "e", "f" };
+            vertices = ["a", "b", "c", "d", "e", "f"];
 
             // 2. Ініціалізуємо 12 ребер з вашого зображення
-            edges = new List<(string from, string to)>
-            {
+            edges =
+            [
                 ("a", "a"), // e1
                 ("a", "b"), // e2
                 ("a", "e"), // e3
@@ -35,7 +35,7 @@ namespace laba_10_n_2
                 ("d", "b"), // e10
                 ("f", "c"), // e11
                 ("e", "b")  // e12
-            };
+            ];
         }
 
         public List<string> GetVertices() => vertices;
@@ -50,10 +50,10 @@ namespace laba_10_n_2
             int[,] matrix = new int[vCount, vCount];
 
             // Проходимо по кожному ребру
-            foreach (var edge in edges)
+            foreach (var (from, to) in edges)
             {
-                int i = vertices.IndexOf(edge.from);
-                int j = vertices.IndexOf(edge.to);
+                int i = vertices.IndexOf(from);
+                int j = vertices.IndexOf(to);
 
                 if (i != -1 && j != -1)
                 {
@@ -76,9 +76,9 @@ namespace laba_10_n_2
             // Проходимо по кожному ребру (кожен стовпець - це ребро)
             for (int j = 0; j < eCount; j++)
             {
-                var edge = edges[j];
-                int i_from = vertices.IndexOf(edge.from);
-                int i_to = vertices.IndexOf(edge.to);
+                var (from, to) = edges[j];
+                int i_from = vertices.IndexOf(from);
+                int i_to = vertices.IndexOf(to);
 
                 // Для спрямованих графів:
                 // +1 (або 1), якщо вершина є початком ребра

@@ -60,9 +60,9 @@ namespace laba_10_n_2
         /// <summary>
         /// Допоміжний метод для красивого виводу матриці у TextBox.
         /// </summary>
-        private string FormatMatrix(int[,] matrix, string[] rowLabels, string[] colLabels)
+        private static string FormatMatrix(int[,] matrix, string[] rowLabels, string[] colLabels)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
