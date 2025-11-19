@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace laba_10_n_2
+﻿namespace laba_10_n_2
 {
-    /// <summary>
-    /// Клас, що зберігає граф та генерує матриці
-    /// </summary>
     public class DirectedGraph
     {
-        // Вершини (V)
         private readonly List<string> vertices;
-        // Ребра (E) - список пар (звідки, куди)
         private readonly List<(string from, string to)> edges;
 
         public DirectedGraph()
         {
-            // --- Вимога: Зберегти заданий граф ---
-            // 1. Ініціалізуємо 6 вершин
             vertices = ["a", "b", "c", "d", "e", "f"];
 
-            // 2. Ініціалізуємо 12 ребер з вашого зображення
             edges =
             [
                 ("a", "a"), // e1
@@ -41,15 +29,11 @@ namespace laba_10_n_2
         public List<string> GetVertices() => vertices;
         public List<(string from, string to)> GetEdges() => edges;
 
-        /// <summary>
-        /// Вимога 1: Генерує Матрицю Суміжності (Adjacency Matrix)
-        /// </summary>
         public int[,] GetAdjacencyMatrix()
         {
             int vCount = vertices.Count;
             int[,] matrix = new int[vCount, vCount];
 
-            // Проходимо по кожному ребру
             foreach (var (from, to) in edges)
             {
                 int i = vertices.IndexOf(from);
@@ -64,16 +48,12 @@ namespace laba_10_n_2
             return matrix;
         }
 
-        /// <summary>
-        /// Вимога 1: Генерує Матрицю Інцидентності (Incidence Matrix)
-        /// </summary>
         public int[,] GetIncidenceMatrix()
         {
             int vCount = vertices.Count;
             int eCount = edges.Count;
             int[,] matrix = new int[vCount, eCount];
 
-            // Проходимо по кожному ребру (кожен стовпець - це ребро)
             for (int j = 0; j < eCount; j++)
             {
                 var (from, to) = edges[j];

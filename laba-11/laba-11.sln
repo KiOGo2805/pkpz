@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "laba-11-n-1", "laba-11-n-1\laba-11-n-1.pyproj", "{6F35FC2C-8E29-45AD-BA75-A0D842ACBC71}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "laba-11-n-2", "laba-11-n-2\laba-11-n-2.pyproj", "{FB36A6CD-79A0-41B8-99E2-F782F1C25574}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "laba-11-n-3", "laba-11-n-3\laba-11-n-3.pyproj", "{9F16A3A9-A42E-494D-A0AC-2D2932557717}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "laba-11-n-4", "laba-11-n-4\laba-11-n-4.pyproj", "{571475FC-92CF-4FC4-8F41-F2045BCC9C90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F35FC2C-8E29-45AD-BA75-A0D842ACBC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F35FC2C-8E29-45AD-BA75-A0D842ACBC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB36A6CD-79A0-41B8-99E2-F782F1C25574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB36A6CD-79A0-41B8-99E2-F782F1C25574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F16A3A9-A42E-494D-A0AC-2D2932557717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F16A3A9-A42E-494D-A0AC-2D2932557717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571475FC-92CF-4FC4-8F41-F2045BCC9C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571475FC-92CF-4FC4-8F41-F2045BCC9C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E8D2A29-E00F-47DC-BBFB-CE11B109F0A6}
+	EndGlobalSection
+EndGlobal

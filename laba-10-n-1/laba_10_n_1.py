@@ -1,25 +1,19 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
-from collections import deque # Will be used as a Queue
+from collections import deque
 
-# ----------------------------------------------------
-# 1. BINARY TREE LOGIC
-# ----------------------------------------------------
 
 class Node:
-    """Node of a Binary Search Tree (BST)."""
     def __init__(self, data):
-        self.data = data  # e.g., Department name
+        self.data = data
         self.left = None
         self.right = None
 
 class BinarySearchTree:
-    """Class that implements the BST logic."""
     
     def __init__(self):
         self.root = None
 
-    # --- 1. Insert element ---
     def insert(self, data):
         self.root = self._insert_recursive(self.root, data)
         return True 
@@ -35,25 +29,23 @@ class BinarySearchTree:
         
         return node
 
-    # --- 2. Search in binary tree ---
     def search(self, data):
         return self._search_recursive(self.root, data)
 
     def _search_recursive(self, node, data):
         if node is None:
-            return False # Not found
+            return False
         
         if data == node.data:
-            return True # Found
+            return True
         elif data < node.data:
             return self._search_recursive(node.left, data)
         else:
             return self._search_recursive(node.right, data)
 
-    # --- 3. Delete element ---
     def delete(self, data):
         if not self.search(data):
-            return False # Element doesn't exist
+            return False
         self.root = self._delete_recursive(self.root, data)
         return True 
 
@@ -66,14 +58,11 @@ class BinarySearchTree:
         elif data > node.data:
             node.right = self._delete_recursive(node.right, data)
         else:
-            # Found the node to delete
-            # Case 1: No child or one child
             if node.left is None:
                 return node.right
             elif node.right is None:
                 return node.left
             
-            # Case 2: Two children
             temp = self._find_min(node.right)
             node.data = temp.data 
             node.right = self._delete_recursive(node.right, temp.data)
@@ -86,23 +75,17 @@ class BinarySearchTree:
             current = current.left
         return current
 
-    # --- 4. Tree traversal (VIA QUEUE) ---
     def traverse_level_order(self):
-        """
-        Implements "tree traversal via queue" (Breadth-First Search).
-        """
         if self.root is None:
             return []
         
         results = []
-        queue = deque([self.root]) # Create a queue
+        queue = deque([self.root])
 
         while queue:
-            # Dequeue the first element
             node = queue.popleft()
             results.append(str(node.data))
             
-            # Enqueue children (to the END of the queue)
             if node.left:
                 queue.append(node.left)
             if node.right:
@@ -110,9 +93,6 @@ class BinarySearchTree:
                 
         return results
 
-# ----------------------------------------------------
-# 2. GRAPHICAL USER INTERFACE (GUI) CLASS
-# ----------------------------------------------------
 class UniversityApp(tk.Tk):
     
     def __init__(self):
@@ -206,9 +186,6 @@ class UniversityApp(tk.Tk):
                 messagebox.showinfo("Search Result", f"No, element '{data}' was NOT FOUND in the tree.")
             self.entry_data.delete(0, "end")
 
-# ----------------------------------------------------
-# 3. RUN THE APPLICATION
-# ----------------------------------------------------
 if __name__ == "__main__":
     app = UniversityApp()
     app.mainloop()

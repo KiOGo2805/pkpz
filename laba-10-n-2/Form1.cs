@@ -1,28 +1,20 @@
-using System;
 using System.Text;
-using System.Windows.Forms;
 
 namespace laba_10_n_2
 {
     public partial class Form1 : Form
     {
-        // Наш об'єкт, що "зберігає" граф
         private readonly DirectedGraph graph;
 
         public Form1()
         {
             InitializeComponent();
 
-            // Створюємо екземпляр нашого графа
             graph = new DirectedGraph();
 
-            // Встановлюємо моноширинний шрифт для виводу
             txtOutput.Font = new System.Drawing.Font("Consolas", 10F);
         }
 
-        /// <summary>
-        /// Кнопка: "Показати Матрицю Суміжності"
-        /// </summary>
         private void btnShowAdjacency_Click(object sender, EventArgs e)
         {
             var matrix = graph.GetAdjacencyMatrix();
@@ -35,15 +27,11 @@ namespace laba_10_n_2
             );
         }
 
-        /// <summary>
-        /// Кнопка: "Показати Матрицю Інцидентності"
-        /// </summary>
         private void btnShowIncidence_Click(object sender, EventArgs e)
         {
             var matrix = graph.GetIncidenceMatrix();
             var rowLabels = graph.GetVertices().ToArray();
 
-            // Створюємо назви для стовпців (e1, e2, ... e12)
             var colLabels = new string[graph.GetEdges().Count];
             for (int i = 0; i < colLabels.Length; i++)
             {
@@ -57,9 +45,6 @@ namespace laba_10_n_2
             );
         }
 
-        /// <summary>
-        /// Допоміжний метод для красивого виводу матриці у TextBox.
-        /// </summary>
         private static string FormatMatrix(int[,] matrix, string[] rowLabels, string[] colLabels)
         {
             StringBuilder sb = new();

@@ -1,18 +1,12 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import random
-import os
 
-# --- 1. Filenames ---
 FILE_L1_STUDENTS = "L1_students.txt"
 FILE_L2_TICKETS = "L2_tickets.txt"
 FILE_L3_RESULTS = "L3_results.txt"
 
-# --- 2. Core processing logic ---
 def process_circular_lists(students, tickets):
-    """
-    Executes the drawing logic from circular lists.
-    """
     available_students = list(students)
     available_tickets = list(tickets)
     pairings = [] 
@@ -20,22 +14,18 @@ def process_circular_lists(students, tickets):
     if not available_students or not available_tickets:
         raise ValueError("Lists cannot be empty.")
 
-    # Randomly select k-th student and n-th ticket (1-based-indexing)
     k = random.randint(1, len(available_students))
     n = random.randint(1, len(available_tickets))
     
-    # Convert to 0-based indices for Python
     k_index = k - 1
     n_index = n - 1
 
     num_draws = min(len(available_students), len(available_tickets))
 
     for _ in range(num_draws):
-        # Calculate index based on the REMAINING list length
         student_idx = k_index % len(available_students)
         ticket_idx = n_index % len(available_tickets)
 
-        # "Draw" the student and ticket by removing them
         student = available_students.pop(student_idx)
         ticket = available_tickets.pop(ticket_idx)
 
@@ -43,7 +33,6 @@ def process_circular_lists(students, tickets):
 
     return pairings
 
-# --- 3. GUI Class (tkinter) ---
 class CircularListApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -59,10 +48,8 @@ class CircularListApp(tk.Tk):
         main_frame = ttk.Frame(self)
         main_frame.pack(fill="x", padx=10, pady=10)
 
-        # --- Input Fields (Horizontal) ---
         ttk.Label(main_frame, text="List L1 (Students, space-separated):", font=("Segoe UI", 9, "bold")).pack(anchor="w")
         
-        # Default text
         self.students_var = tk.StringVar(
             value="Smith Johnson Williams Brown Davis")
         self.txt_students = ttk.Entry(main_frame, textvariable=self.students_var, font=("Consolas", 10), width=70)
@@ -75,24 +62,20 @@ class CircularListApp(tk.Tk):
         self.txt_tickets = ttk.Entry(main_frame, textvariable=self.tickets_var, font=("Consolas", 10), width=70)
         self.txt_tickets.pack(fill="x", padx=5, pady=5)
 
-        # --- Process Button ---
         self.btn_process = ttk.Button(self, text="1. Save, Read from Files, and Process", 
                                       command=self.process_data)
         self.btn_process.pack(pady=10, fill="x", padx=15)
 
-        # --- Output ListBox ---
         ttk.Label(self, text="Result:", font=("Segoe UI", 9, "bold")).pack(anchor="w", padx=15)
         self.lst_result = tk.Listbox(self, height=10, font=("Consolas", 10, "bold"))
         self.lst_result.pack(pady=5, padx=15, fill="x")
 
-        # --- Save Button ---
         self.btn_save_result = ttk.Button(self, text="2. Save Result to File", 
                                           command=self.save_result, state="disabled")
         self.btn_save_result.pack(pady=10, fill="x", padx=15)
 
     def process_data(self):
         try:
-            # Step 1: Get data from GUI
             input_l1_str = self.students_var.get().strip()
             input_l2_str = self.tickets_var.get().strip()
 
@@ -103,22 +86,18 @@ class CircularListApp(tk.Tk):
             list1_from_gui = input_l1_str.split()
             list2_from_gui = input_l2_str.split()
 
-            # Step 2: Save to L1/L2 files
             with open(FILE_L1_STUDENTS, "w", encoding="utf-8") as f:
                 f.write("\n".join(list1_from_gui))
             with open(FILE_L2_TICKETS, "w", encoding="utf-8") as f:
                 f.write("\n".join(list2_from_gui))
 
-            # Step 3: Read from L1/L2 files (Requirement)
             with open(FILE_L1_STUDENTS, "r", encoding="utf-8") as f:
                 students = f.read().splitlines()
             with open(FILE_L2_TICKETS, "r", encoding="utf-8") as f:
                 tickets = f.read().splitlines()
 
-            # Step 4: Process (Variant Requirement)
             self.modified_results = process_circular_lists(students, tickets)
 
-            # Step 5: Display result on GUI
             self.display_list(self.modified_results, "Drawing Results")
             self.btn_save_result.config(state="normal")
 
@@ -131,7 +110,6 @@ class CircularListApp(tk.Tk):
             return
         
         try:
-            # Step 6: Save result to file
             with open(FILE_L3_RESULTS, "w", encoding="utf-8") as f:
                 f.write("\n".join(self.modified_results))
             
@@ -149,7 +127,6 @@ class CircularListApp(tk.Tk):
             self.lst_result.insert("end", item)
 
 
-# --- 4. Run the application ---
 if __name__ == "__main__":
     app = CircularListApp()
     app.mainloop()

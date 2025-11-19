@@ -35,15 +35,11 @@ namespace laba_9_n_1
                 File.WriteAllText(FileL1_Input, inputL1);
                 File.WriteAllText(FileL2_Input, inputL2);
 
-                List<string> list1 = File.ReadAllLines(FileL1_Input).ToList();
-                List<string> list2 = File.ReadAllLines(FileL2_Input).ToList();
+                List<string> list1 = [.. File.ReadAllLines(FileL1_Input)];
+                List<string> list2 = [.. File.ReadAllLines(FileL2_Input)];
 
                 var wordsInL2 = new HashSet<string>(list2);
-                List<string> modifiedList1 = list1
-                    .Where(word => !wordsInL2.Contains(word))
-                    .ToList();
-
-                //DisplayList(lstResult, modifiedList1, "Результат (L1 Модифікований)");
+                List<string> modifiedList1 = [.. list1.Where(word => !wordsInL2.Contains(word))];
 
                 SaveResultToFile(modifiedList1);
 
@@ -70,7 +66,7 @@ namespace laba_9_n_1
 
                 lstResult.Items.Clear();
                 lstResult.Items.Add($"--- Вміст файлу '{FileL1_Output}' ---");
-                lstResult.Items.AddRange(fileContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None));
+                lstResult.Items.AddRange(fileContent.Split(["\r\n", "\n"], StringSplitOptions.None));
             }
             catch (Exception ex)
             {
@@ -80,7 +76,7 @@ namespace laba_9_n_1
 
         private void SaveResultToFile(List<string> listToSave)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             for (int i = 0; i < listToSave.Count; i++)
             {
                 sb.Append(listToSave[i] + " ");
@@ -90,20 +86,6 @@ namespace laba_9_n_1
                 }
             }
             File.WriteAllText(FileL1_Output, sb.ToString().Trim());
-        }
-
-        private void DisplayList(ListBox listBox, List<string> list, string title)
-        {
-            listBox.Items.Clear();
-            listBox.Items.Add($"--- {title} ({list.Count} шт.) ---");
-            if (list.Count == 0)
-            {
-                listBox.Items.Add("Список порожній.");
-            }
-            foreach (var item in list)
-            {
-                listBox.Items.Add(item);
-            }
         }
     }
 }
