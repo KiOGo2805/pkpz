@@ -30,7 +30,7 @@ def process_circular_lists(students, tickets):
         ticket = available_tickets.pop(ticket_idx)
 
         pairings.append(f"{student} -> {ticket}")
-
+        
     return pairings
 
 class CircularListApp(tk.Tk):
